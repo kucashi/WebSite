@@ -11,8 +11,8 @@ namespace Boosting.Controllers
 {
     public class AdminController : Controller
     {
-        [Authorize]
-        [ValidateAntiForgeryToken]
+        //[Authorize]
+        //[ValidateAntiForgeryToken]
         public ActionResult Customers()
         {
             List<OrdersModel> customers = new List<OrdersModel>();
