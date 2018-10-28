@@ -1,0 +1,42 @@
+﻿@model Boosting.Models.ContactModel
+
+@{
+    ViewBag.Title = "ContactUs";
+}
+
+@using (Html.BeginForm("Sent", "Email"))
+{
+    @Html.AntiForgeryToken()
+    <h4>Send your comments.</h4>
+    <hr />
+    <div class="form-group">
+        @Html.LabelFor(m => m.name, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.name)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.emailAddress, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.emailAddress, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.emailAddress)
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.message, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextAreaFor(m => m.message, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.message)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Send" />
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
